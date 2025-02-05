@@ -11,4 +11,17 @@ internal static class ServicesConfiguration
 
         return services;
     }
+
+    private static IServiceCollection AddPersistenceInfrastructure(
+        this IServiceCollection services,
+        Action<MongoDbConnection> connection)
+    {
+        var conventionPack = new ConventionPack { new CamelCaseElementNameConvention() };
+        ConventionRegistry.Register("camelCase", conventionPack, t => true);
+        BsonSerializer.TryRegisterSerializer(new GuidSerializer(MongoDB.Bson.GuidRepresentation.Standard));
+
+        return services
+            .Configure(connection)
+            .AddScoped<IPatientContext, PatientContext>();
+    }
 }

@@ -6,7 +6,7 @@ internal static class ApplicationBuilderConfiguration
 {
     internal static WebApplicationBuilder ConfigureApplicationBuilder(this WebApplicationBuilder builder)
     {
-        builder.Services.ConfigureServices();
+        builder.Services.ConfigureServices(builder.Configuration);
         return builder;
     }
 }
