@@ -1,4 +1,5 @@
-﻿using MaternityHospital.Api.Configuration.Swagger;
+﻿using MaternityHospital.Api.Configuration.Middlewares;
+using MaternityHospital.Api.Configuration.Swagger;
 
 namespace MaternityHospital.Api.Configuration.Application;
 
@@ -14,6 +15,8 @@ internal static class ApplicationConfiguration
 
         application.UseAuthorization();
         application.MapControllers();
+
+        application.UseErrorHandlingMiddleware();
 
         return application;
     }
