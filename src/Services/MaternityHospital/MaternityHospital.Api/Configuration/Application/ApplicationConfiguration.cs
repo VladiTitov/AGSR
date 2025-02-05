@@ -12,6 +12,9 @@ internal static class ApplicationConfiguration
             application.ConfigureSwagger();
         }
 
+        application.UseAuthorization();
+        application.MapControllers();
+
         return application;
     }
 }
