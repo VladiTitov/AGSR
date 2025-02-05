@@ -1,11 +1,12 @@
 ﻿using MaternityHospital.Api.Configuration.Swagger;
-using MaternityHospital.Api.Infrastructure;
 using MaternityHospital.Api.Mappings;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Bson.Serialization.Conventions;
 using System.Reflection;
 using System.Text.Json.Serialization;
+using MaternityHospital.Api.Behaviors;
+using FluentValidation;
 
 namespace MaternityHospital.Api.Configuration.Services;
 
@@ -14,6 +15,7 @@ internal static class ServicesConfiguration
     internal static IServiceCollection ConfigureServices(
         this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddValidation();
         services
             .AddControllers()
             .AddJsonOptions(opt => 
@@ -42,5 +44,13 @@ internal static class ServicesConfiguration
         return services
             .Configure(connection)
             .AddScoped<IPatientContext, PatientContext>();
+    }
+
+    private static IServiceCollection AddValidation(this IServiceCollection services)
+    {
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+        return services;
     }
 }
