@@ -1,0 +1,9 @@
+﻿global using MediatR;
+global using AutoMapper;
+global using MaternityHospital.Api.Models;
+global using MaternityHospital.Api.Models.Pagination;
+global using MaternityHospital.Domain.Enum;
+global using MaternityHospital.Domain.Settings;
+global using MaternityHospital.Domain.Wrapper;
+global using MaternityHospital.Api.Infrastructure;
+global using MaternityHospital.Api.Configuration.Application;
