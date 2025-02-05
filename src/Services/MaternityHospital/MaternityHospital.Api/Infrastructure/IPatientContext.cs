@@ -1,5 +1,4 @@
-﻿using MaternityHospital.Api.Models;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 
 namespace MaternityHospital.Api.Infrastructure;
 
