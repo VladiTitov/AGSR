@@ -35,6 +35,9 @@ public class ErrorHandlerMiddleware
                     response.StatusCode = (int)HttpStatusCode.BadRequest;
                     responseModel.Errors = ex.Errors.Select(_ => _.ErrorMessage);
                     break;
+                case InvalidCastException ex:
+                    response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    break;
                 default:
                     response.StatusCode = (int)HttpStatusCode.InternalServerError;
                     break;

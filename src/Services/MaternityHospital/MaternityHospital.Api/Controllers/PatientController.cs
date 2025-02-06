@@ -2,6 +2,7 @@
 using MaternityHospital.Api.Features.Patients.Commands.Delete;
 using MaternityHospital.Api.Features.Patients.Commands.Update;
 using MaternityHospital.Api.Features.Patients.Queries.GetAll;
+using MaternityHospital.Api.Features.Patients.Queries.GetByFilter;
 using MaternityHospital.Api.Features.Patients.Queries.GetById;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -21,21 +22,22 @@ public class PatientController : ControllerBase
 
     [HttpGet]
     public async Task<IResult> GetPatientsAsync(
-        [FromQuery] PaginationRequest request,
+        [FromQuery] PatientRequest request,
         CancellationToken cancellationToken = default)
     {
-        var validFilter = new PaginationFilter(
-            pageNumber: request.Page,
-            pageSize: request.Size);
-
-        var data = await _mediator.Send(
-            request: new GetAllQuery(validFilter),
-            cancellationToken: cancellationToken);
+        var data = request.BirthDate is null || !request.BirthDate.Any()
+            ? await _mediator.Send(
+                new GetAllQuery(new PaginationFilter(request)),
+                cancellationToken)
+            : await _mediator.Send(
+                new GetByFilterQuery(new PatientFilter(request)),
+                cancellationToken);
 
         return data is null || !data.Any()
             ? Results.NoContent()
             : Results.Ok(
-                value: new PagedResponse<List<Patient>>(data, validFilter.PageNumber, validFilter.PageSize));
+                value: new PagedResponse<List<Patient>>(
+                    data, (int)request.Page, (int)request.Size));
     }
 
     [HttpGet]
