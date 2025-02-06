@@ -1,0 +1,23 @@
+services:
+  db-mongo:
+    container_name: db.mongo
+    ports:
+      - 5001:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_DATABASE_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DATABASE_PASSWORD}
+
+  maternityhospital-api:
+    container_name: maternity.hospital.api
+    build:
+      context: .
+      dockerfile: Services/MaternityHospital/MaternityHospital.Api/Dockerfile
+    environment:
+      TZ: Europe/Minsk
+      DOTNET_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 80
+      MongoDbConnection__DbHostData__HostName: db-mongo
+      MongoDbConnection__UserCredentials__UserName: ${MONGO_DATABASE_USERNAME}
+      MongoDbConnection__UserCredentials__Password: ${MONGO_DATABASE_PASSWORD}
+    ports:
+      - 5000:80
