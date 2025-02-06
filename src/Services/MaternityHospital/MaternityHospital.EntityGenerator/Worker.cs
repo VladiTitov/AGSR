@@ -5,17 +5,17 @@ namespace MaternityHospital.EntityGenerator
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-        private readonly IGeneratorService _generatorService;
+        private readonly IServiceProvider _serviceProvider;
 
         private readonly TimeSpan _timeout = TimeSpan.FromHours(1);
         private readonly int _entitiesCount = 100;
 
         public Worker(
             ILogger<Worker> logger,
-            IGeneratorService generatorService)
+            IServiceProvider serviceProvider)
         {
             _logger = logger;
-            _generatorService = generatorService;
+            _serviceProvider = serviceProvider;
         }
 
         protected override async Task ExecuteAsync(
@@ -25,7 +25,14 @@ namespace MaternityHospital.EntityGenerator
             {
                 try
                 {
-                    var entities = _generatorService.GetPatientList(_entitiesCount);
+                    using var scope = _serviceProvider.CreateScope();
+                    var generatorService = scope.ServiceProvider.GetRequiredService<IGeneratorService>();
+                    var patientsService = scope.ServiceProvider.GetRequiredService<IPatientsService>();
+
+                    var entities = generatorService.GetPatientList(_entitiesCount);
+                    var tasks = new List<Task>(entities.Select(i => patientsService.CreateAsync(i, cancellationToken)));
+
+                    await Task.WhenAll(tasks);
                 }
                 catch (Exception ex)
                 {

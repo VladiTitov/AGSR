@@ -21,4 +21,13 @@ public static class StringExtensions
                 ? result
                 : throw new InvalidCastException(
                     string.Format(Messages.InvalidCastExceptionMessage, value, typeof(TEnum).Name));
+
+    public static Guid ToGuid(this string value)
+        => string.IsNullOrEmpty(value)
+                ? throw new ArgumentNullException(
+                    string.Format(Messages.ArgumentNullExceptionMessage, "guidValue", nameof(ToGuid)))
+                : Guid.TryParse(value, out Guid result)
+                    ? result
+                    : throw new InvalidCastException(
+                        string.Format(Messages.InvalidCastExceptionMessage, value, nameof(Guid)));
 }
