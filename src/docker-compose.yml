@@ -1,0 +1,18 @@
+services:
+  db-mongo:
+    image: mongo:6
+    networks:
+      - lan-net
+    volumes:
+      - ./data/logs.db.mongo:/data/db
+
+  maternityhospital-api:
+    image: ${REGISTRY}/maternity.hospital.api
+    depends_on:
+      - db-mongo
+    networks:
+      - lan-net
+
+networks:
+  lan-net:
+    driver: bridge
