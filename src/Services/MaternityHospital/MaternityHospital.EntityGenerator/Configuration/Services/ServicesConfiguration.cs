@@ -1,7 +1,10 @@
-﻿namespace MaternityHospital.EntityGenerator.Configuration.Services;
+﻿using MaternityHospital.EntityGenerator.Services;
+
+namespace MaternityHospital.EntityGenerator.Configuration.Services;
 
 internal static class ServicesConfiguration
 {
     internal static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
-        => services;
+        => services
+            .AddScoped<IGeneratorService, GeneratorService>();
 }
