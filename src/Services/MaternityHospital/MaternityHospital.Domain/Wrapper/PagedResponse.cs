@@ -3,10 +3,10 @@
 #nullable disable
 public class PagedResponse<T> : Response<T>
 {
-    public uint PageNumber { get; set; }
-    public uint PageSize { get; set; }
+    public int PageNumber { get; set; }
+    public int PageSize { get; set; }
 
-    public PagedResponse(T data, uint pageNumber, uint pageSize)
+    public PagedResponse(T data, int pageNumber, int pageSize)
     {
         PageNumber = pageNumber;
         PageSize = pageSize;

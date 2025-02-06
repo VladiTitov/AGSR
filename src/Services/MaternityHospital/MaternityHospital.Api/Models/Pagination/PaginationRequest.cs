@@ -2,6 +2,6 @@
 
 public class PaginationRequest
 {
-    public uint Page { get; set; }
-    public uint Size { get; set; }
+    public uint Page { get; set; } = 1;
+    public uint Size { get; set; } = 10;
 }
