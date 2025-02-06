@@ -2,23 +2,20 @@
 
 public class PaginationFilter
 {
-    public uint PageNumber { get; set; }
-    public uint PageSize { get; set; }
+    public int PageNumber { get; set; }
+    public int PageSize { get; set; }
 
     public const int DefaultPageSize = 10;
 
-    public PaginationFilter(bool isDesc = false)
-    {
-        PageNumber = 1;
-        PageSize = DefaultPageSize;
-    }
+    public PaginationFilter(PaginationRequest request) 
+        : this((int)request.Page, (int)request.Size) { }
 
-    public PaginationFilter(uint pageNumber, uint pageSize)
+    public PaginationFilter(int pageNumber, int pageSize)
     {
         PageNumber = pageNumber < 1 ? 1 : pageNumber;
         PageSize = pageSize < DefaultPageSize ? DefaultPageSize : pageSize;
     }
 
-    public uint GetSkipCount()
+    public int GetSkipCount()
         => (PageNumber - 1) * PageSize;
 }
