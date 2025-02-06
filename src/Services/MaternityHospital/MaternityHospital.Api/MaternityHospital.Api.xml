@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MaternityHospital.Api</name>
+    </assembly>
+    <members>
+        <member name="T:MaternityHospital.Api.Controllers.PatientController">
+            <summary>
+            PatientController
+            </summary>
+        </member>
+        <member name="M:MaternityHospital.Api.Controllers.PatientController.#ctor(MediatR.IMediator)">
+            <summary>
+            PatientController constructor
+            </summary>
+            <param name="mediator"></param>
+        </member>
+        <member name="M:MaternityHospital.Api.Controllers.PatientController.GetPatientsAsync(MaternityHospital.Api.Models.PatientRequest,System.Threading.CancellationToken)">
+             <summary>
+             Get patients
+             </summary>
+             /// <remarks>
+             Sample request:
+            
+                 GET api/patients/
+            
+             </remarks>
+             <response code="200">Return patients</response>
+             <response code="204">No Content</response>
+             <response code="400">Bad Request</response>
+             <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:MaternityHospital.Api.Controllers.PatientController.GetPatientAsync(System.Guid,System.Threading.CancellationToken)">
+             <summary>
+             Get patient by Id
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET api/patients/0aa00a00-0000-0000-a0aa-0a000a00aaa0
+            
+             </remarks>
+             <response code="200">Return patient</response>
+             <response code="400">Bad Request</response>
+             <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:MaternityHospital.Api.Controllers.PatientController.CreatePatientAsync(MaternityHospital.Api.Features.Patients.Commands.Create.CreatePatientCommand,System.Threading.CancellationToken)">
+             <summary>
+             Add new patient
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST api/patients
+                 {
+                     "name": {
+                         "use": "official",
+                         "family": "Иванов",
+                         "given": [
+                             "Иван",
+                             "Иванович"
+                         ]
+                     },
+                     "gender": "male",
+                     "birthDate": "2024-01-13T18:25:43",
+                     "active": true
+                 }
+            
+             </remarks>
+             <response code="201">Return patient Id</response>
+             <response code="400">Bad Request</response>
+             <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:MaternityHospital.Api.Controllers.PatientController.UpdatePatient(MaternityHospital.Api.Features.Patients.Commands.Update.UpdatePatientCommand,System.Threading.CancellationToken)">
+             <summary>
+             Update patient
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 PUT api/patients
+                 {
+                     "id": 0aa00a00-0000-0000-a0aa-0a000a00aaa0,
+                     "name": {
+                         "use": "official",
+                         "family": "Иванов",
+                         "given": [
+                             "Иван",
+                             "Иванович"
+                         ]
+                     },
+                     "gender": "male",
+                     "birthDate": "2024-01-13T18:25:43",
+                     "active": true
+                 }
+            
+             </remarks>
+             <response code="201">Created</response>
+             <response code="400">Bad Request</response>
+             <response code="500">Internal Server Error</response>
+        </member>
+        <member name="M:MaternityHospital.Api.Controllers.PatientController.DeletePatient(System.Guid,System.Threading.CancellationToken)">
+             <summary>
+             Delete patient
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 DELETE api/patients/0aa00a00-0000-0000-a0aa-0a000a00aaa0
+            
+             </remarks>
+             <response code="204">Success</response>
+             <response code="404">Bad Request</response>
+             <response code="500">Internal Server Error</response>
+        </member>
+        <member name="T:MaternityHospital.Api.Features.Patients.Commands.Create.CreatePatientCommand">
+            <summary>
+            Create patient model
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Create.CreatePatientCommand.Name">
+            <summary>
+            Name property
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Create.CreatePatientCommand.Gender">
+            <summary>
+            Gender property
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Create.CreatePatientCommand.BirthDate">
+            <summary>
+            BirthDate property
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Create.CreatePatientCommand.Active">
+            <summary>
+            Active propetry
+            </summary>
+        </member>
+        <member name="T:MaternityHospital.Api.Features.Patients.Commands.Update.UpdatePatientCommand">
+            <summary>
+            Update property command
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Update.UpdatePatientCommand.Id">
+            <summary>
+            Id property
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Update.UpdatePatientCommand.Name">
+            <summary>
+            Name property
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Update.UpdatePatientCommand.Gender">
+            <summary>
+            Gender property
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Update.UpdatePatientCommand.BirthDate">
+            <summary>
+            BirthDate property
+            </summary>
+        </member>
+        <member name="P:MaternityHospital.Api.Features.Patients.Commands.Update.UpdatePatientCommand.Active">
+            <summary>
+            IsActive property
+            </summary>
+        </member>
+    </members>
+</doc>

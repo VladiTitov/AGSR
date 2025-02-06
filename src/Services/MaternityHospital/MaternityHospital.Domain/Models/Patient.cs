@@ -1,29 +1,34 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MaternityHospital.Domain.Enums;
+using MongoDB.Bson.Serialization.Attributes;
 
-namespace MaternityHospital.Api.Features.Patients.Commands.Create;
+namespace MaternityHospital.Domain.Models;
 
 #nullable disable
 /// <summary>
-/// Create patient model
+/// Patient model
 /// </summary>
-public class CreatePatientCommand : IRequest<Guid>
+public class Patient
 {
+    /// <summary>
+    /// Id property
+    /// </summary>
+    [BsonId]
+    public Guid Id { get; set; }
     /// <summary>
     /// Name property
     /// </summary>
     public Name Name { get; set; }
-
     /// <summary>
     /// Gender property
     /// </summary>
-    [EnumDataType(typeof(Gender))]
     public Gender Gender { get; set; }
     /// <summary>
-    /// BirthDate property
+    /// BirthDate property (required)
     /// </summary>
     public DateTime BirthDate { get; set; }
     /// <summary>
-    /// Active propetry
+    /// IsActive property
     /// </summary>
     public bool Active { get; set; }
 }
+

@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaternityHospital", "Matern
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaternityHospital.Api", "Services\MaternityHospital\MaternityHospital.Api\MaternityHospital.Api.csproj", "{4DB4E64C-7E3E-47B5-AB24-3427A2B09A04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaternityHospital.Domain", "Services\MaternityHospital\MaternityHospital.Domain\MaternityHospital.Domain.csproj", "{D187BE68-96C7-40A0-B57D-06CD4492142A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaternityHospital.Domain", "Services\MaternityHospital\MaternityHospital.Domain\MaternityHospital.Domain.csproj", "{D187BE68-96C7-40A0-B57D-06CD4492142A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

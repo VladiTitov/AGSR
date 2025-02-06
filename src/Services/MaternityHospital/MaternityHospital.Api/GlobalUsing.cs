@@ -3,6 +3,7 @@ global using AutoMapper;
 global using MaternityHospital.Api.Models;
 global using MaternityHospital.Api.Models.Pagination;
 global using MaternityHospital.Domain.Enums;
+global using MaternityHospital.Domain.Models;
 global using MaternityHospital.Domain.Settings;
 global using MaternityHospital.Domain.Wrapper;
 global using MaternityHospital.Api.Infrastructure;
