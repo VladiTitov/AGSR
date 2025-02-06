@@ -1,10 +1,7 @@
-using MaternityHospital.EntityGenerator;
+var hostBuilder = Host.CreateDefaultBuilder();
 
-IHost host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices(services =>
-    {
-        services.AddHostedService<Worker>();
-    })
-    .Build();
+hostBuilder.ConfigureHostBuilder();
 
-await host.RunAsync();
+var host = hostBuilder.Build();
+
+host.Run();
