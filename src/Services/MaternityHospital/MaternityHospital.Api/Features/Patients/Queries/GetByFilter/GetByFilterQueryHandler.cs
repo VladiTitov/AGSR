@@ -28,8 +28,15 @@ public class GetByFilterQueryHandler
         var queryFilters = new List<FilterDefinition<Patient>>();
 
         if (filter.BirthDate != null && filter.BirthDate.Any())
-            queryFilters.Add(queryFilterBuilder.GetFhirFilterDefinition(f => f.BirthDate, filter.BirthDate!));
-
+        {
+            foreach (var f in filter.BirthDate)
+            {
+                queryFilters.Add(f.IsDateOnly()
+                    ? queryFilterBuilder.GetFhirDateOnlyFilterDefinition(f => f.BirthDate, f)
+                    : queryFilterBuilder.GetFhirFilterDefinition(f => f.BirthDate, f));
+            }
+        }
+            
         return queryFilterBuilder.And(queryFilters);
     }
 }

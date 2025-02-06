@@ -16,6 +16,14 @@ public class PatientFilter : PaginationFilter
     {
         if (birthDate != null && birthDate.Any())
             BirthDate = birthDate
-                .Select(i => new FhirQueryDateTime(i[0..2].ToUpper(), i[2..].ToDateTime()));
+                .Select(i =>
+                {
+                    if (i.Length < 3)
+                        throw new ArgumentException("Invalid fhir query length");
+
+                    return new FhirQueryDateTime(
+                        op: i[0..2].ToUpper().ToEnum<FhirOperator>(),
+                        value: i[2..].ToDateTime());
+                });
     }
 }
