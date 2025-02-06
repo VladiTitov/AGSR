@@ -10,7 +10,7 @@ internal static class SwaggerConfiguration
             .AddSwaggerGen(opt =>
             {
                 var basePath = AppContext.BaseDirectory;
-
+                opt.DescribeAllParametersInCamelCase();
                 opt.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
