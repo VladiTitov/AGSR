@@ -1,4 +1,4 @@
-﻿namespace MaternityHospital.Domain.Enum;
+﻿namespace MaternityHospital.Domain.Enums;
 
 public enum Gender
 {
