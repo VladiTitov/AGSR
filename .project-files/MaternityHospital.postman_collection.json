@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "f4417066-8fa9-4058-817a-6e059474dd4e",
+		"name": "MaternityHospital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "41829445"
+	},
+	"item": [
+		{
+			"name": "ByFilterScenarios",
+			"item": [
+				{
+					"name": "GetPaginationRequest",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPaginationRequestWithoutSize",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?page=1",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByEqBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=eq2020-10-10&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "eq2020-10-10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByNeBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=ne2013-01-14&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "ne2013-01-14"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByItBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=lt2013-01-14T10:00&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "lt2013-01-14T10:00"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByGtBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=gt2013-01-14T10:00&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "gt2013-01-14T10:00"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByGeBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=ge2013-03-14&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "ge2013-03-14"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByLeBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=le2013-03-14&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "le2013-03-14"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBySaBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=sa2013-03-14&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "sa2013-03-14"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetByEbBirthDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUri}}/api/patients?birthDate=eb2013-03-14&page=1&size=10",
+							"host": [
+								"{{BaseUri}}"
+							],
+							"path": [
+								"api",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "birthDate",
+									"value": "eb2013-03-14"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreatePatient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": {\r\n    \"use\": \"official\",\r\n    \"family\": \"Иванов\",\r\n    \"given\": [\r\n        \"Иван\",\r\n        \"Иванович\"\r\n        ]\r\n    },\r\n    \"gender\": \"male\",\r\n    \"birthDate\": \"2024-01-13T18:25:43\",\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUri}}/api/patients"
+			},
+			"response": []
+		},
+		{
+			"name": "GetPatientById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BaseUri}}/api/patients/0233f509-859a-4e84-9a7e-bddaad65fe13"
+			},
+			"response": []
+		},
+		{
+			"name": "UpdatePatient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"0233f509-859a-4e84-9a7e-bddaad65fe13\",\r\n    \"name\": {\r\n    \"use\": \"official-new\",\r\n    \"family\": \"Иванов\",\r\n    \"given\": [\r\n        \"Иван\",\r\n        \"Иванович\"\r\n        ]\r\n    },\r\n    \"gender\": \"male\",\r\n    \"birthDate\": \"2024-01-13T18:25:43\",\r\n    \"active\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUri}}/api/patients"
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePatient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "{{BaseUri}}/api/patients/0233f509-859a-4e84-9a7e-bddaad65fe13"
+			},
+			"response": []
+		}
+	]
+}
